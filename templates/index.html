@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ceshi周报</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.staticfile.org/echarts/4.3.0/echarts.min.js"></script>
+<!--  <script src="https://unpkg.com/vue@next"></script> -->
+</head>
+<body>
+
+<div class="container mt-3 ">      
+  <table class="table table-light" style="border:1px solid black" >
+    <thead>
+      <tr>
+        <th colspan="2" class="text-center" style="font-size: 35px;">5.15-5.22周报</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th colspan="2" style="font-size: 15px;">一、总览</th>
+      </tr>
+      <tr>
+        <td colspan="2">1、本周ceshi共接待客户反馈500单，详细情况如下：</td>
+      </tr>
+      <tr>
+        <td colspan="2">分类情况：故障类0个，占比0.0%，问题类274个，占比54.8%，咨询类226个，占比45.2%.</td>
+      </tr>
+	  <tr>
+	    <td colspan="2">结单情况：98.8%</td>
+	  </tr>
+	  <tr>
+	    <td colspan="2">好评率：99%.不满意工单量：2个（一般0个，不满意1个，非常不满意1个）</td>
+	  </tr>
+	  <tr>
+	    <td colspan="2">2、本周问题top：</td>
+	  </tr>
+	  <tr>
+	    <td colspan="2">TOP1:代码库&项目： 占比18.0%</td>
+	  </tr>
+	  <tr>
+	    <td colspan="2">TOP2:客户端问题：占比15.0%</td>
+	  </tr>
+	  <tr>
+	    <td colspan="2">TOP3:权限&认证： 占比13.6%</td>
+	  </tr>
+    </tbody>
+
+    <thead>
+      <tr>
+        <th colspan="2" style="font-size: 15px;">二、满意度和分类占比</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><div id="bar" style="width: 600px;height:400px;"></div></td>
+        <td><div id="haha" style="width: 600px;height:400px;"></div></td>
+      </tr>
+      <tr>
+        <td colspan="2">Mary</td>
+      </tr>
+      <tr>
+        <td colspan="2">Mary</td>
+      </tr>
+    </tbody>
+    <thead>
+      <tr>
+        <th colspan="2" style="font-size: 15px;">二、满意度和分类占比</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td colspan="2">Mary</td>
+      </tr>
+      <tr>
+        <td colspan="2">Mary</td>
+      </tr>
+      <tr>
+        <td colspan="2">Mary</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+ 
+ <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        // var myChart = echarts.init(document.getElementById('main'));
+
+
+        var myChart = echarts.init(document.getElementById("bar"));
+        var option = {{pie_opitions|safe}};
+        myChart.setOption(option);
+
+
+
+        // // 指定图表的配置项和数据
+        // var option = {
+        //     title: {
+        //         text: '第一个 ECharts 实例'
+        //     },
+        //     tooltip: {},
+        //     legend: {
+        //         data:['销量']
+        //     },
+        //     xAxis: {
+        //         data: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
+        //     },
+        //     yAxis: {},
+        //     series: [{
+        //         name: '销量',
+        //         type: 'bar',
+        //         data: [5, 20, 36, 10, 10, 20]
+        //     }]
+        // };
+ 
+        // // 使用刚指定的配置项和数据显示图表。
+        // myChart.setOption(option);
+		
+		
+		// var myChart1 = echarts.init(document.getElementById('haha'));
+		 
+		// // 指定图表的配置项和数据
+		// var option1 = {
+		//     title: {
+		//         text: '第一个 ECharts 实例'
+		//     },
+		//     tooltip: {},
+		//     legend: {
+		//         data:['销量']
+		//     },
+		//     xAxis: {
+		//         data: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
+		//     },
+		//     yAxis: {},
+		//     series: [{
+		//         name: '销量',
+		//         type: 'bar',
+		//         data: [5, 20, 36, 10, 10, 20]
+		//     }]
+		// };
+		 
+		// // 使用刚指定的配置项和数据显示图表。
+		// myChart1.setOption(option1);
+    </script>
+</body>
+</html>
