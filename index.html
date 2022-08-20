@@ -1,0 +1,93 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>工蜂周报</title>
+ <link href="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/css/bootstrap.min.css" rel="stylesheet">
+ <script src="https://cdn.staticfile.org/twitter-bootstrap/5.1.1/js/bootstrap.bundle.min.js"></script>
+
+<script src="https://cdn.staticfile.org/vue/2.7.0/vue.min.js"></script>
+<style>
+	#last{
+		width: 900px;
+		border:1px solid red;
+	}
+</style>
+</head>
+<body>
+	
+<div id="app">
+	<div class="container mt-3">
+	  <ul class="list-group">
+	    <li class="list-group-item" style = "text-align: center;"><h1>{{title}}</h1></li>
+	    <li class="list-group-item"><h2>{{first}}</h2></li>
+	    <li class="list-group-item">
+			<table class="table table-bordered">
+			       <tbody v-for="site in table1">
+						<tr>
+							<td v-for = "i in site">{{i}}</td>
+						</tr>
+					</tbody>
+			 </table>
+		</li>
+		<li class="list-group-item"><h2>{{second}}</h2></li>
+		<li class="list-group-item">
+			<img width= "600px" height = "500px" src="G:/python_demo/worker-bee-weekly-report-2/image/满意度.png" alt="">
+			<img width= "600px" height = "500px" src="G:/python_demo/worker-bee-weekly-report-2/image/归档.png" alt="">
+		</li>
+		<li class="list-group-item"><h2>{{third}}</h2></li>
+		<li class="list-group-item">
+			<table class="table table-bordered">
+			      <tbody v-for="site in weijieb_biaoge">
+			      <tr>
+			          <td v-for = "i in site">{{i}}</td>
+			      </tr>
+					</tbody>
+			</table>
+		</li>
+		<li class="list-group-item"><h2>{{fourth}}</h2></li>
+		<li class="list-group-item">
+			<img width= "600px" height = "500px" src="G:/python_demo/worker-bee-weekly-report-2/image/透传.png" alt="">
+			<img width= "600px" height = "500px" src="G:/python_demo/worker-bee-weekly-report-2/image/透传率.png" alt="">
+		</li>
+		
+		<li class="list-group-item" >
+			<!-- <table class="table table-bordered" width="200"> -->
+			<table class="table table-bordered" >
+			      <tbody v-for="site in touchuan_biaoge" style="table-layout:fixed ;">
+			      <tr width="1200px">
+			          <!-- <td v-for = "i in site" style="word-wrap:break-word;width:200px;">{{i}}</td> -->
+			          <td >
+			          	<div   style=" width:70px;word-wrap:break-word;" >{{site[0]}}</div> 
+			          </td>
+			          <td >
+			          	<div   style=" width:300px;word-wrap:break-word;" >{{site[1]}}</div> 
+			          </td>
+			          <td >
+			          	<div   style=" width:200px;word-wrap:break-word;" >{{site[2]}}</div> 
+			          </td>
+			          <td>
+			          	<div   style=" width:300px;word-wrap:break-word;" >{{site[3]}}</div> 
+			          </td>
+			      </tr>
+					</tbody>
+			</table>
+		</li>
+		<li class="list-group-item"><h2>{{five}}</li>
+	  </ul>
+	</div>
+</div>
+
+<script>
+new Vue({
+  el: '#app',
+  data:
+
+{'title': '工蜂——1.5线技术支持周报', 'first': '一，总览', 'second': '二，本周问题分类&满意度分析', 'third': '三，未完结工单分析&非工作时间工单总结', 'fourth': '四，透传比例分析', 'five': '五，典型案例工单问题及总结输出', 'table1': [['数据总览', '总工单量', '未结单量', '用户满意度(已评价)', '满意度反馈率', '透传单量', '透传率'], ['数值', 476, 2, '99.14%', '48.74%', 17, '3.57%'], ['对比上周期', '下降52单', '上升2单', '下降0.18%', '下降7.13%', '下降3单', '下降0.22%']], 'img_src': ['image/满意度.png', 'image/归档.png', 'image/透传率.png', 'image/透传.png'], 'weijieb_biaoge': [['工单ID', '问题描述', '当前进展', '预计完结时间'], [355401, '【工蜂中有个项目的pipelines页面打开报错】 \nhttps://git.woa.com/pracing/server/ci/pipelines#/ \n图片链接：https://zhiyan.woa.com/servicedesk-api/resource?image=28c3ac3b-4e8e-4168-ac22-a8c55a5be267.png', '需长时间解决排查', '周二处理完成'], [355356, '【工蜂上有像git那样贡献开源项目流程的文档】', '待用户反馈', '周二处理完成']], 'touchuan_biaoge': [['工单ID', '问题描述', '排查过程&处理结果', '总结输出'], [353821, '【WebIDE里的vscode插件打不开了】 \n图片链接：https://zhiyan.woa.com/servicedesk-api/resource?image=45bbb20c-ed1b-4f82-96ce-bf176c5ee956.png', 'webide安装插件问题.', '已联系开发侧协助处理完成'], [353616, '【在负责团队代码向工蜂的迁移，遇到一个submodule的问题】', 'fork问题咨询', '开发侧回复方案：如果要fork的话，那么现在远端做好fork仓库，然后你submodule直接引用fork仓库就好了，如果硬编码就直接clone下来，把.git移除 \n然后就把这个模块当作业务repo的一部分就行了'], [353000, '【开启\xa0uBlock\xa0Origin\xa0插件的时候误报网络异常.，实际是跟踪请求被拦截,，这个提示没有必要弹】 \n图片链接：https://zhiyan.woa.com/servicedesk-api/resource?image=70698798-b7ed-46ee-b7fd-96301d2cb281.png', 'web端插件问题', '产研已经协助处理： \n1.\xa0暂时将count接口修改名字解决广告插件拦截的问题（目前可以在广告拦截插件中将\xa0git.woa.com\xa0加白解决）2.\xa0去掉\xa0all\xa0相关的的请求，这些确实是多余的请求，是在某个版本被引入的bug这个问题已列bug单处理，在下个版本修复https://tapd.woa.com/tgit/bugtrace/bugs/view?bug_id=1020395112101997325\xa0'], [352992, '【仓库推送报错】 \nhttps://git.tencent.com/TDMGroup/Maps_Runtime.git \n图片链接：https://zhiyan.woa.com/servicedesk-api/resource?image=f693bd86-8bc7-48b5-b6b2-4bc2caf33533.png', '仓库推送报错】\xa0https://git.tencent.com/TDMGroup/Maps_Runtime.git', '未处理完成'], [352977, '【这边go.mod中引用了一个包，但不是最新版本的，怎么更新到最新版本】 \n图片链接：https://zhiyan.woa.com/servicedesk-api/resource?image=c9eb10b8-8891-4c6b-9487-e9b6d1045600.png', 'go问题咨询', '联系开发侧协助处理.客户侧暂不需要协助，工单先结单'], [352936, '【之前在WebIDE上调用trpc服务的代理ip不好使了】 \n图片链接：https://zhiyan.woa.com/servicedesk-api/resource?image=5848f268-4e33-49a1-b5ed-22ed1554a0e4.png', 'webIDE问题', '开发侧已经私聊客户解决问题'], [352928, '【使用\xa0UGit\xa0客户端提示error】 \nfailed\xa0to\xa0push\xa0some\xa0refs\xa0to\xa0‘git.woa.com:rstudio/fgame/Content.git; \n图片链接：https://zhiyan.woa.com/servicedesk-api/resource?image=39067712-9ffe-4ac6-bcb5-d6869944c02a.png', '用户反馈推送代码总是有LFS报错 \n图片链接：https://zhiyan.woa.com/servicedesk-api/resource?image=4a83ac76-eab6-40ea-8cd6-f6d6fd99e9d3.png', '是在gitconfig中有错误的lfs对应链接 \n清除后重新添加即可解决'], [352642, '【为什么会有分支没有对应commitId？】 \n图片链接：https://zhiyan.woa.com/servicedesk-api/resource?image=3b2bf60e-5fe4-42b1-b4dc-e4dd1a133178.png', '流水线中，更新分支信息的时候，会被自动删除', '当前流水线侧也没检查出具体原因。 \n后续用户与流水线研发自行私聊反馈'], [352325, '【这类提醒怎么关掉 已经取消\xa0star\xa0跟\xa0watching】 \n图片链接：https://zhiyan.woa.com/servicedesk-api/resource?image=44f095a1-3411-4b5e-9ca5-bc06d603b3d6.png', '【这类提醒怎么关掉 已经取消\xa0star\xa0跟\xa0watching】', '未处理完成'], [352180, '【之前仓库代码里面有显示的token，今天把token隐藏掉了，但是git\xa0commit依然会显示历史的token，这个有办法处理掉吗】 \n图片链接：https://zhiyan.woa.com/servicedesk-api/resource?image=1f1c030e-e45e-4bd2-ab00-d91b7a4c282f.png', '客户commit含有敏感信息，咨询如何删除.', '1.\xa0本地工作区git\xa0checkout\xa0<branch>先切换到需要回退的分支，2.\xa0reset到一个指定不包含敏感信息的commit，3.\xa0git\xa0push\xa0-f\xa0orgin\xa0<branch>,不要覆盖错分支了 \nforce\xa0push后，之后的commit都没了 \nhttps://git-scm.com/book/zh/v2/Git-%E5%B7%A5%E5%85%B7-%E9%87%8D%E5%86%99%E5%8E%86%E5%8F%B2用filter-branch可以重写历史，但是要完全清理掉，也要force-push。'], [351883, '【commit\xa0message\xa0命名指定了task，\xa0但MR没自动关联上 手工关联了下才能通过】 \n图片链接：https://zhiyan.woa.com/servicedesk-api/resource?image=e9c51d00-838b-463f-adbc-297c0d479928.png \nhttps://git.woa.com/mmpay_svn/mmpaygateway/merge_requests/2760/commits', 'mr绑定tapd问题咨询', '开发侧协助处理完成.'], [351834, '【发现使用工蜂git的api可以跳过merge\xa0request的review，怎么对仓库禁用git\xa0api】', '用户反馈API申请的MR单，没有获取到reviewer path路径', '经产品与研发排查，这个属于功能遗漏 \n下个双周迭代发布'], [351696, '【工蜂授权页面的问题】', 'oauth认证相关问题', '联系研发协助处理'], [351596, '【\xa0帮忙看下这个问题】 \n图片链接：https://zhiyan.woa.com/servicedesk-api/resource?image=212a8c3c-015f-459b-9a2d-62f8ffafe2da.png', '用户本地推送的时候报错', '联系研发协助处理'], [350942, '【这边涉及大文件push\xa0，执行了\xa0git\xa0lfs\xa0track\xa0，然后\xa0git\xa0lfs\xa0ls-files\xa0\xa0显示为空\xa0是怎么回事】', '用户反馈初次track大文件仅LFS也出现报错，无法连接上LFS服务器', '当前研发已私聊协助用户排查完成'], [350537, '【一个企微群，是否可以接入两个工蜂项目的机器人】', '用户反馈工蜂机器人无法订阅多个项目', '引导用户手输命令关注项目'], [350470, '群名：【一般】【 350470 】git上有大文件报错 \n问题描述：git上有大文件报错 \n图片链接：https://zhiyan.woa.com/servicedesk-api/resource?image=1afe3642-3ce2-4732-bf73-499f337f7bea.png', '用户再构建机拉取LFS大文件失效', '研发已协助用户处理完成 \n由于坐席系统BUG，助手号退群，后续研发与用户自行对接完成的']]}
+    ,
+	})
+</script>
+</body>
+</html>
